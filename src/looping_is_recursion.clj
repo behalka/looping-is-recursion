@@ -1,7 +1,14 @@
 (ns looping-is-recursion)
 
 (defn power [base exp]
-  ":(")
+  (let [helper (fn [acc base exp]
+                 (if (zero? exp)
+                   acc ; mezivysledek danej
+                   ; musi mit stejnej pocet param jako volana funkce
+                   (recur (* acc base) base (dec exp))))]
+    (helper 1 base exp)
+  ))
+
 
 (defn last-element [a-seq]
   ":(")
